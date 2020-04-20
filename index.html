@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="./Content/game.css">
+    <title>COMP397 - W2020 - Lesson 11</title>
+</head>
+<body>
+    <div id="mainContent">
+        <!-- The game "lives" inside the canvas -->
+        <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+
+    <!-- JavaScript Section -->
+
+    <!-- 3rd party libraries-->
+    <script src="./node_modules/easeljs/lib/easeljs.min.js"></script>
+    <script src="./node_modules/tweenjs/lib/tweenjs.min.js"></script>
+    <script src="./node_modules/soundjs/lib/soundjs.min.js"></script>
+    <script src="./node_modules/preloadjs/lib/preloadjs.min.js"></script>
+    <script src="./node_modules/stats.js/build/stats.min.js"></script>
+
+    <!-- Game Scripts -->
+
+    <!-- Component Scripts -->
+    <script src="./Scripts/util/Mathf.js"></script>
+    <script src="./Scripts/config/color.js"></script>
+    <script src="./Scripts/objects/Color.js"></script>
+    <script src="./Scripts/objects/Vector2.js"></script>
+    <script src="./Scripts/enums/GameObjectType.js"></script>
+    <script src="./Scripts/enums/Keys.js"></script>
+    <script src="./Scripts/enums/ParticleShape.js"></script>
+    <script src="./Scripts/enums/EmissionShape.js"></script>
+    <script src="./Scripts/enums/SliderOrientation.js"></script>
+    <script src="./Scripts/objects/GameObject.js"></script>
+    <script src="./Scripts/objects/Scene.js"></script>
+    <script src="./Scripts/scenes/State.js"></script>
+    <script src="./Scripts/config/game.js"></script>
+
+    <!-- Managers -->
+    <script src="./Scripts/managers/Collision.js"></script>
+    <script src="./Scripts/managers/ScoreBoard.js"></script>
+    <script src="./Scripts/managers/Bullet.js"></script>
+    <script src="./Scripts//managers/Keyboard.js"></script>
+
+    <!-- Game Objects -->
+    <script src="./Scripts/objects/Player.js"></script>
+    <script src="./Scripts/objects/Label.js"></script>
+    <script src="./Scripts/objects/CheckBox.js"></script>
+    <script src="./Scripts/objects/Button.js"></script>
+    <script src="./Scripts/objects/slider.js"></script>
+    <script src="./Scripts/objects/DropDown.js"></script>
+    <script src="./Scripts/objects/TextureButton.js"></script>
+    <script src="./Scripts/objects/Ocean.js"></script>
+    <script src="./Scripts/objects/Plane.js"></script>
+    <script src="./Scripts/objects/Island.js"></script>
+    <script src="./Scripts/objects/Cloud.js"></script>
+    <script src="./Scripts/objects/Bullet.js"></script>
+    <script src="./Scripts/objects/Particle.js"></script>
+    <script src="./Scripts/objects/ParticleEmitter.js"></script>
+
+    <!-- Scenes -->
+    <script src="./Scripts/scenes/End.js"></script>
+    <script src="./Scripts/scenes/Play.js"></script>
+    <script src="./Scripts/scenes/Start.js"></script>
+
+    <script src="./Scripts/game.js"></script>
+</body>
+</html>

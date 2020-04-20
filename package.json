@@ -1,0 +1,23 @@
+{
+  "name": "comp397-w2020-lesson12c",
+  "version": "1.0.0",
+  "description": "demo for Lesson 12",
+  "main": "game.js",
+  "author": "Tom Tsiliopoulos",
+  "license": "MIT",
+  "dependencies": {
+    "createjs": "^1.0.1",
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "stats.js": "^0.17.0",
+    "tweenjs": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0",
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/stats.js": "^0.17.0",
+    "@types/tweenjs": "^1.0.0"
+  }
+}
