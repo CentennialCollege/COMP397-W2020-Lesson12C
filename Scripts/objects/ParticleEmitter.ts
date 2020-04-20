@@ -2,7 +2,7 @@ module objects
 {
     export class ParticleEmitter extends createjs.Container
     {
-        private _position:Vector2;
+        private _position:util.Vector2;
         private _emissionAngle : number;
 
         // PUBLIC INSTANCE VARIABLES
@@ -13,15 +13,15 @@ module objects
         public repeatNumber: number = 1;
 
         public rotationalVelocity: number;
-        public emitterOffset: objects.Vector2;
+        public emitterOffset: util.Vector2;
         public emissionShape: enums.EmissionShape;
         public emissionRate: number = 10.0; // particles per frame
 
         // Emisson Shape Variables
-        public emissionSize: objects.Vector2;
+        public emissionSize: util.Vector2;
         public emissionRadius: number = 10.0;
-        public arcTopRight: objects.Vector2;
-        public arcTopLeft: objects.Vector2;
+        public arcTopRight: util.Vector2;
+        public arcTopLeft: util.Vector2;
         public arcRadius: number = 200.0; // distance from the emitter origin
         public emissionArc: number = 60.0 // the width of the arc
 
@@ -45,39 +45,39 @@ module objects
 
         // default particle settings
         public limitSpeedOverLifetime: boolean = false;
-        public initialSpeedLimitRange: objects.Vector2 = new objects.Vector2();
-        public finalSpeedLimitRange: objects.Vector2 = new objects.Vector2();
+        public initialSpeedLimitRange: util.Vector2 = new util.Vector2();
+        public finalSpeedLimitRange: util.Vector2 = new util.Vector2();
 
-        public initialSpeedRange: objects.Vector2;
+        public initialSpeedRange: util.Vector2;
 
-        public lifeRange: objects.Vector2;
+        public lifeRange: util.Vector2;
 
         public isSizeChangingOverLifetime: boolean = false;
         public particleSize: number;
-        public sizeRangeBegin: objects.Vector2;
-        public sizeRangeEnd: objects.Vector2;
-        public massRange: objects.Vector2;
+        public sizeRangeBegin: util.Vector2;
+        public sizeRangeEnd: util.Vector2;
+        public massRange: util.Vector2;
 
         public isSpinChangingOverLifetime: boolean = false;
-        public spinRangeBegin: objects.Vector2;
-        public spinRangeEnd: objects.Vector2;
+        public spinRangeBegin: util.Vector2;
+        public spinRangeEnd: util.Vector2;
 
         public isColourChangingOverLifetime: boolean = false;
-        public particleColor: objects.Color;
-        public colourBegin0: objects.Color;
-        public colourBegin1: objects.Color;
+        public particleColor: util.Colour;
+        public colourBegin0: util.Colour;
+        public colourBegin1: util.Colour;
 
-        public colourEnd0: objects.Color;
-        public colourEnd1: objects.Color;
+        public colourEnd0: util.Colour;
+        public colourEnd1: util.Colour;
 
         public particleShape: enums.ParticleShape;
 
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
 
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
@@ -89,7 +89,7 @@ module objects
         constructor(
             particleShape:enums.ParticleShape = enums.ParticleShape.CIRCLE,
             particleSize:number = 20,
-            particleColor:objects.Color = objects.Color.Red(),
+            particleColor:util.Colour = util.Colour.Red(),
             emissionShape: enums.EmissionShape = enums.EmissionShape.CIRCLE,
             numberOfParticles: number = 50, emissionRate:number = 10)
         {
@@ -126,11 +126,11 @@ module objects
 
             //emitter properties
             this.rotationalVelocity = 0;
-            this.emitterOffset = new objects.Vector2();
+            this.emitterOffset = new util.Vector2();
             this.emissionDirection = 90.0;
 
             // shape properties
-            this.emissionSize = new objects.Vector2(10.0, 10.0);
+            this.emissionSize = new util.Vector2(10.0, 10.0);
 
             // playback properties
             this.isPlaying = true;
@@ -140,29 +140,29 @@ module objects
 
             // speed options
             this.limitSpeedOverLifetime = true;
-            this.initialSpeedRange = new objects.Vector2(10.0, 20.0);
-            this.initialSpeedLimitRange = new objects.Vector2(20.0, 30.0);
-            this.finalSpeedLimitRange = new objects.Vector2(5.0, 10.0);
+            this.initialSpeedRange = new util.Vector2(10.0, 20.0);
+            this.initialSpeedLimitRange = new util.Vector2(20.0, 30.0);
+            this.finalSpeedLimitRange = new util.Vector2(5.0, 10.0);
 
-            this.lifeRange = new objects.Vector2(4.0, 9.0);
+            this.lifeRange = new util.Vector2(4.0, 9.0);
 
             // size options
             this.isSizeChangingOverLifetime = true;
-            this.sizeRangeBegin =new objects.Vector2(10.0, 20.0);
-            this.sizeRangeEnd = new objects.Vector2(0.5, 1.0);
-            this.massRange = new objects.Vector2(0.5, 1.0);
+            this.sizeRangeBegin =new util.Vector2(10.0, 20.0);
+            this.sizeRangeEnd = new util.Vector2(0.5, 1.0);
+            this.massRange = new util.Vector2(0.5, 1.0);
 
             // Rotation options
             this.isSpinChangingOverLifetime = true;
-            this.spinRangeBegin = new objects.Vector2(-1, -1);
-            this.spinRangeEnd = new objects.Vector2(1.0, 1.0);
+            this.spinRangeBegin = new util.Vector2(-1, -1);
+            this.spinRangeEnd = new util.Vector2(1.0, 1.0);
 
             // Colour Options
             this.isColourChangingOverLifetime = true;
-            this.colourBegin0 = objects.Color.Red();
-            this.colourBegin1 = objects.Color.DarkOrange();
-            this.colourEnd0 = objects.Color.Black();
-            this.colourEnd1 = objects.Color.DarkGrey();
+            this.colourBegin0 = util.Colour.Red();
+            this.colourBegin1 = util.Colour.DarkOrange();
+            this.colourEnd0 = util.Colour.Black();
+            this.colourEnd1 = util.Colour.DarkGrey();
 
             // don't let tick propogate
             this.tickEnabled = false;
@@ -294,7 +294,7 @@ module objects
             {
                 case enums.EmissionShape.RECTANGLE:
                     {
-                        let pos: objects.Vector2 = new objects.Vector2();
+                        let pos: util.Vector2 = new util.Vector2();
                         pos.x = util.Mathf.RandomRange((-this.emissionSize.x * 0.5) + (particle.size * 0.5),
                             this.emissionSize.x - particle.size);
                         pos.y = 0;// util.Mathf.RandomRange(this.rectangleSize.y * -0.5, this.rectangleSize.y * 0.5);
@@ -302,7 +302,7 @@ module objects
                         particle.x = pos.x;
                         particle.y = pos.y;
 
-                        particle.velocity = new Vector2(0.0, 2.0);
+                        particle.velocity = new util.Vector2(0.0, 2.0);
                     }
                     break;
                 case enums.EmissionShape.CIRCLE:
@@ -312,7 +312,7 @@ module objects
 
                         let randomAngle = util.Mathf.RandomRange(0.0, 360) * 0.0174532;
                         let randomSpeed = util.Mathf.RandomRange(1.0, 2.0);
-                        let direction = new objects.Vector2();
+                        let direction = new util.Vector2();
                         direction.x = randomSpeed * Math.cos(randomAngle);
                         direction.y = randomSpeed * Math.sin(randomAngle);
 
@@ -328,7 +328,7 @@ module objects
                         let offset = 90.0 // compensate for emessionAngle
                         let randomAngle = (util.Mathf.RandomRange(-halfArc + offset, halfArc + offset))
                         let randomSpeed = util.Mathf.RandomRange(1.0, 2.0);
-                        let direction = new objects.Vector2();
+                        let direction = new util.Vector2();
                         direction.x = randomSpeed * (Math.cos(randomAngle * 0.0174532));
                         direction.y = randomSpeed * (Math.sin(randomAngle * 0.0174532));
 
@@ -398,7 +398,7 @@ module objects
             particle.y += particle.velocity.y * this.deltaTime;
 
             particle.life -= this.deltaTime;
-            let particleDistance = objects.Vector2.distance(objects.Vector2.zero(), new objects.Vector2(particle.x, particle.y));
+            let particleDistance = util.Vector2.distance(util.Vector2.zero(), new util.Vector2(particle.x, particle.y));
 
             /* POTENTIAL PARTICLE REMOVAL */
             switch(this.emissionShape)

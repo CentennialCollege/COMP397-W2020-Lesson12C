@@ -12,8 +12,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var TextureButton = /** @class */ (function (_super) {
         __extends(TextureButton, _super);
         // constructor
@@ -52,6 +52,6 @@ var objects;
         };
         return TextureButton;
     }(objects.GameObject));
-    objects.TextureButton = TextureButton;
-})(objects || (objects = {}));
+    ui.TextureButton = TextureButton;
+})(ui || (ui = {}));
 //# sourceMappingURL=TextureButton.js.map

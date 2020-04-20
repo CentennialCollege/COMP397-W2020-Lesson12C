@@ -66,9 +66,9 @@ var managers;
         });
         // private methods
         ScoreBoard.prototype._initialize = function () {
-            this._livesLabel = new objects.Label("Lives: 99", "20px", "Consolas", "#FFFF00", 20, 20);
-            this._scoreLabel = new objects.Label("Score: 99999", "20px", "Consolas", "#FFFF00", 490, 20);
-            this._highScoreLabel = new objects.Label("High Score: 99999", "40px", "Consolas", "#FFFF00", 320, 290);
+            this._livesLabel = new ui.Label("Lives: 99", "20px", "Consolas", "#FFFF00", 20, 20);
+            this._scoreLabel = new ui.Label("Score: 99999", "20px", "Consolas", "#FFFF00", 490, 20);
+            this._highScoreLabel = new ui.Label("High Score: 99999", "40px", "Consolas", "#FFFF00", 320, 290);
             this.Lives = config.Game.LIVES;
             this.Score = config.Game.SCORE;
             this.HighScore = config.Game.HIGH_SCORE;

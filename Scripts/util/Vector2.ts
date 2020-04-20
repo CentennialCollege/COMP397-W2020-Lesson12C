@@ -1,4 +1,4 @@
-module objects
+module util
 {
     export class Vector2
     {
@@ -235,7 +235,7 @@ module objects
          * @returns {number}
          * @memberof Vector2
          */
-        public static magnitude(vec: objects.Vector2): number {
+        public static magnitude(vec: util.Vector2): number {
             let x = vec.x;
             let y = vec.y;
             return Math.sqrt((x * x) + (y * y));

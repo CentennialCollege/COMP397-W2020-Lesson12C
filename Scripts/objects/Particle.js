@@ -19,13 +19,13 @@ var objects;
         // CONSTRUCTOR
         function Particle(type, color, size) {
             if (type === void 0) { type = enums.ParticleShape.CIRCLE; }
-            if (color === void 0) { color = objects.Color.Red(); }
+            if (color === void 0) { color = util.Colour.Red(); }
             if (size === void 0) { size = 20; }
             var _this = _super.call(this) || this;
             // Physical Properties
-            _this.velocity = new objects.Vector2();
-            _this.acceleration = new objects.Vector2();
-            _this.force = new objects.Vector2();
+            _this.velocity = new util.Vector2();
+            _this.acceleration = new util.Vector2();
+            _this.force = new util.Vector2();
             _this.mass = 1.0;
             _this.life = 0; // lifetime remaining in seconds
             _this.color = color;

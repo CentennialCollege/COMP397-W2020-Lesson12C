@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Bullet() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "bullet", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "bullet", new util.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
@@ -35,13 +35,13 @@ var objects;
             }
         };
         Bullet.prototype._move = function () {
-            this.position = objects.Vector2.add(this.position, this.velocity);
+            this.position = util.Vector2.add(this.position, this.velocity);
         };
         // PUBLIC METHODS
         Bullet.prototype.Start = function () {
             this.type = enums.GameObjectType.BULLET;
             this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new objects.Vector2(0, -this._verticalSpeed);
+            this.velocity = new util.Vector2(0, -this._verticalSpeed);
             this.Reset();
         };
         Bullet.prototype.Update = function () {
@@ -51,7 +51,7 @@ var objects;
             }
         };
         Bullet.prototype.Reset = function () {
-            this.position = new objects.Vector2(-1000, -1000);
+            this.position = new util.Vector2(-1000, -1000);
             this.isActive = false;
         };
         return Bullet;

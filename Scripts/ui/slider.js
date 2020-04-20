@@ -12,8 +12,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var Slider = /** @class */ (function (_super) {
         __extends(Slider, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++
@@ -39,8 +39,8 @@ var objects;
             if (width === void 0) { width = 100; }
             if (height === void 0) { height = 20; }
             if (orientation === void 0) { orientation = enums.SliderOrientation.HORIZONTAL; }
-            if (trackColor === void 0) { trackColor = config.Color.WHITE_SMOKE; }
-            if (thumbColor === void 0) { thumbColor = config.Color.DARK_GREY; }
+            if (trackColor === void 0) { trackColor = config.Colour.WHITE_SMOKE; }
+            if (thumbColor === void 0) { thumbColor = config.Colour.DARK_GREY; }
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
@@ -52,8 +52,8 @@ var objects;
             _this._width = width;
             _this._height = height;
             _this.value = value;
-            _this._trackColor = new objects.Color(trackColor);
-            _this._thumbColor = new objects.Color(thumbColor);
+            _this._trackColor = new util.Colour(trackColor);
+            _this._thumbColor = new util.Colour(thumbColor);
             _this.cursor = "pointer";
             _this._orientation = orientation;
             _this.on("mousedown", _this._sliderChange, _this);
@@ -187,6 +187,6 @@ var objects;
         };
         return Slider;
     }(createjs.Shape));
-    objects.Slider = Slider;
-})(objects || (objects = {}));
+    ui.Slider = Slider;
+})(ui || (ui = {}));
 //# sourceMappingURL=slider.js.map

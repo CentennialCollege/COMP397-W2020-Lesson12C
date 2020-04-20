@@ -18,17 +18,17 @@ module objects
 
 
         // Physical Properties
-        public velocity: objects.Vector2 = new objects.Vector2();
-        public acceleration: objects.Vector2 = new objects.Vector2();
-        public force: objects.Vector2 = new objects.Vector2();
+        public velocity: util.Vector2 = new util.Vector2();
+        public acceleration: util.Vector2 = new util.Vector2();
+        public force: util.Vector2 = new util.Vector2();
         public mass: number = 1.0;
 
         public sizeBegin: number;
         public sizeEnd: number;
 
-        public color: objects.Color;
-        public colourBegin: objects.Color;
-        public colourEnd: objects.Color;
+        public color: util.Colour;
+        public colourBegin: util.Colour;
+        public colourEnd: util.Colour;
 
         public speedLimitBegin:number;
         public speedLimitEnd:number;
@@ -45,7 +45,7 @@ module objects
         public type: enums.ParticleShape;
 
         // CONSTRUCTOR
-        constructor(type: enums.ParticleShape = enums.ParticleShape.CIRCLE, color:objects.Color =  objects.Color.Red(), size: number = 20)
+        constructor(type: enums.ParticleShape = enums.ParticleShape.CIRCLE, color:util.Colour =  util.Colour.Red(), size: number = 20)
         {
             super();
 

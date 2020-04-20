@@ -34,11 +34,11 @@ var objects;
         Plane.prototype._checkBounds = function () {
             // left boundary
             if (this.position.x <= this.halfWidth) {
-                this.position = new objects.Vector2(this.halfWidth, this.position.y);
+                this.position = new util.Vector2(this.halfWidth, this.position.y);
             }
             // right boundary
             if (this.position.x >= config.Game.SCREEN_WIDTH - this.halfWidth) {
-                this.position = new objects.Vector2(config.Game.SCREEN_WIDTH - this.halfWidth, this.position.y);
+                this.position = new util.Vector2(config.Game.SCREEN_WIDTH - this.halfWidth, this.position.y);
             }
         };
         Plane.prototype._move = function () {
@@ -47,9 +47,9 @@ var objects;
                 var newPositionX = (config.Game.KEYBOARD_MANAGER.MoveRight) ?
                     this.position.x + this._horizontalSpeed : this.position.x - this._horizontalSpeed;
                 // TODO: make movement smoother with a velocity function
-                this.position = new objects.Vector2(newPositionX, this._verticalPosition);
+                this.position = new util.Vector2(newPositionX, this._verticalPosition);
             }
-            this._bulletSpawn = new objects.Vector2(this.position.x, this.position.y - this.halfHeight);
+            this._bulletSpawn = new util.Vector2(this.position.x, this.position.y - this.halfHeight);
         };
         // PUBLIC METHODS
         Plane.prototype.Start = function () {
@@ -59,7 +59,7 @@ var objects;
             this._engineSound.loop = -1; // loop forever
             this._engineSound.volume = 0.1; // 10% volume
             this._horizontalSpeed = 10;
-            this.position = new objects.Vector2(config.Game.SCREEN_WIDTH * 0.5, this._verticalPosition);
+            this.position = new util.Vector2(config.Game.SCREEN_WIDTH * 0.5, this._verticalPosition);
         };
         Plane.prototype.Update = function () {
             this._move();

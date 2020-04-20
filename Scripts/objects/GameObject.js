@@ -27,8 +27,8 @@ var objects;
             _this._height = 0;
             _this._halfWidth = 0;
             _this._halfHeight = 0;
-            _this._position = new objects.Vector2(0, 0, _this);
-            _this._velocity = new objects.Vector2(0, 0);
+            _this._position = new util.Vector2(0, 0, _this);
+            _this._velocity = new util.Vector2(0, 0);
             _this._isColliding = false;
             _this._isCentered = false;
             _this._isActive = false;
@@ -41,9 +41,9 @@ var objects;
                 _this.isCentered = fourth;
             }
             if ((typeof third == "number") && (typeof fourth == "number")) {
-                _this.position = new objects.Vector2(third, fourth, _this);
+                _this.position = new util.Vector2(third, fourth, _this);
             }
-            if (third instanceof objects.Vector2) {
+            if (third instanceof util.Vector2) {
                 _this.position = third;
             }
             _this.type = enums.GameObjectType.UNDEFINED;

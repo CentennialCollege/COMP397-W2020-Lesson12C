@@ -12,28 +12,28 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var DropDown = /** @class */ (function (_super) {
         __extends(DropDown, _super);
         // CONSTRUCTOR
         function DropDown(list, defaultLabelColour, mouseOverLabelColour, width, height, defaultBackColour, mouseOverBackColour, borderColour, position, isCentered) {
-            if (defaultLabelColour === void 0) { defaultLabelColour = config.Color.BLACK; }
-            if (mouseOverLabelColour === void 0) { mouseOverLabelColour = config.Color.WHITE; }
+            if (defaultLabelColour === void 0) { defaultLabelColour = config.Colour.BLACK; }
+            if (mouseOverLabelColour === void 0) { mouseOverLabelColour = config.Colour.WHITE; }
             if (width === void 0) { width = 0; }
             if (height === void 0) { height = 0; }
-            if (defaultBackColour === void 0) { defaultBackColour = config.Color.WHITE_SMOKE; }
-            if (mouseOverBackColour === void 0) { mouseOverBackColour = config.Color.LIGHT_GREY; }
-            if (borderColour === void 0) { borderColour = config.Color.BLACK; }
-            if (position === void 0) { position = new objects.Vector2(); }
+            if (defaultBackColour === void 0) { defaultBackColour = config.Colour.WHITE_SMOKE; }
+            if (mouseOverBackColour === void 0) { mouseOverBackColour = config.Colour.LIGHT_GREY; }
+            if (borderColour === void 0) { borderColour = config.Colour.BLACK; }
+            if (position === void 0) { position = new util.Vector2(); }
             if (isCentered === void 0) { isCentered = false; }
             var _this = _super.call(this) || this;
             _this.itemList = list;
             _this.defaultLabelColour = defaultLabelColour;
             _this.mouseOverLabelColour = mouseOverLabelColour;
-            _this.defaultBackColour = new objects.Color(defaultBackColour);
-            _this.mouseOverBackColour = new objects.Color(mouseOverBackColour);
-            _this.borderColour = new objects.Color(borderColour);
+            _this.defaultBackColour = new util.Colour(defaultBackColour);
+            _this.mouseOverBackColour = new util.Colour(mouseOverBackColour);
+            _this.borderColour = new util.Colour(borderColour);
             _this.shape = new createjs.Shape();
             _this.width = width;
             _this.height = height;
@@ -186,8 +186,8 @@ var objects;
             this.itemSelected = 0;
             this._buttonList = new Array();
             var _loop_1 = function (itemIndex) {
-                var itemPosition = new objects.Vector2(1, 1 + (this_1.height * itemIndex));
-                var itemButton = new objects.Button(this_1.itemList[itemIndex], this_1.defaultLabelColour, this_1.mouseOverLabelColour, this_1.width - 2, this_1.height - 2, this_1.defaultBackColour.hex, this_1.mouseOverBackColour.hex, this_1.defaultBackColour.hex, itemPosition, false);
+                var itemPosition = new util.Vector2(1, 1 + (this_1.height * itemIndex));
+                var itemButton = new ui.Button(this_1.itemList[itemIndex], this_1.defaultLabelColour, this_1.mouseOverLabelColour, this_1.width - 2, this_1.height - 2, this_1.defaultBackColour.hex, this_1.mouseOverBackColour.hex, this_1.defaultBackColour.hex, itemPosition, false);
                 itemButton.label.isCentered = false;
                 itemButton.label.x = itemButton.width * 0.1;
                 itemButton.label.y = itemButton.height * 0.25;
@@ -227,6 +227,6 @@ var objects;
         };
         return DropDown;
     }(createjs.Container));
-    objects.DropDown = DropDown;
-})(objects || (objects = {}));
+    ui.DropDown = DropDown;
+})(ui || (ui = {}));
 //# sourceMappingURL=DropDown.js.map

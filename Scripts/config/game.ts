@@ -5,7 +5,7 @@ module config
         public static SCREEN_WIDTH:number = 640;
         public static SCREEN_HEIGHT:number = 480;
         public static STAGE: createjs.Stage;
-        public static SCENE: scenes.State;
+        public static SCENE: enums.SceneState;
         public static ASSETS: createjs.LoadQueue;
         public static FPS: number = 60; // 60 Frames per second
         public static CLOUD_NUM: number = 4;

@@ -12,8 +12,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var Label = /** @class */ (function (_super) {
         __extends(Label, _super);
         // constructor
@@ -21,7 +21,7 @@ var objects;
             if (labelString === void 0) { labelString = "empty label"; }
             if (fontSize === void 0) { fontSize = "12px"; }
             if (fontFamily === void 0) { fontFamily = "Consolas"; }
-            if (fontColour === void 0) { fontColour = config.Color.BLACK; }
+            if (fontColour === void 0) { fontColour = config.Colour.BLACK; }
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
@@ -75,6 +75,6 @@ var objects;
         };
         return Label;
     }(createjs.Text));
-    objects.Label = Label;
-})(objects || (objects = {}));
+    ui.Label = Label;
+})(ui || (ui = {}));
 //# sourceMappingURL=Label.js.map

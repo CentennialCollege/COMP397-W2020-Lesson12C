@@ -1,6 +1,6 @@
-module objects
+module ui
 {
-    export class TextureButton extends GameObject
+    export class TextureButton extends objects.GameObject
     {
 
         // constructor

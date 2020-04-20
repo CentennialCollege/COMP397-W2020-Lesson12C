@@ -8,8 +8,8 @@ module objects
         private _halfWidth:number;
         private _halfHeight:number;
 
-        private _position:Vector2;
-        private _velocity:Vector2;
+        private _position:util.Vector2;
+        private _velocity:util.Vector2;
 
         private _isColliding:boolean;
         private _isCentered:boolean;
@@ -50,24 +50,24 @@ module objects
             return this._halfHeight;
         }
 
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
 
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
             this.y = newPosition.y;
         }
 
-        get velocity():Vector2
+        get velocity():util.Vector2
         {
             return this._velocity;
         }
 
-        set velocity(newVelocity:Vector2)
+        set velocity(newVelocity:util.Vector2)
         {
             this._velocity = newVelocity;
         }
@@ -96,22 +96,22 @@ module objects
             }
         }
 
-        public get isActive() : boolean 
+        public get isActive() : boolean
         {
             return this._isActive;
         }
-        
-        public set isActive(v : boolean) 
+
+        public set isActive(v : boolean)
         {
             this._isActive = v;
         }
 
-        public get type() : enums.GameObjectType 
+        public get type() : enums.GameObjectType
         {
             return this._type;
         }
 
-        public set type(v : enums.GameObjectType) 
+        public set type(v : enums.GameObjectType)
         {
             this._type = v;
         }
@@ -119,8 +119,8 @@ module objects
 
         // CONSTRUCTOR
         constructor(sprite_sheet?:createjs.SpriteSheet, frame_name?: string, x?:number, y?:number, centered?:boolean)
-        constructor(sprite_sheet:createjs.SpriteSheet, frame_name: string, position: objects.Vector2, centered?: boolean)
-        constructor(first: createjs.SpriteSheet,second: string = "placeholder",  third: Vector2 | number = 0, fourth: boolean | number = 0, fifth:boolean = false)
+        constructor(sprite_sheet:createjs.SpriteSheet, frame_name: string, position: util.Vector2, centered?: boolean)
+        constructor(first: createjs.SpriteSheet,second: string = "placeholder",  third: util.Vector2 | number = 0, fourth: boolean | number = 0, fifth:boolean = false)
         {
             super(first, second);
 
@@ -129,12 +129,12 @@ module objects
             this._height = 0;
             this._halfWidth = 0;
             this._halfHeight = 0;
-            this._position = new Vector2(0, 0, this);
-            this._velocity = new Vector2(0, 0);
+            this._position = new util.Vector2(0, 0, this);
+            this._velocity = new util.Vector2(0, 0);
             this._isColliding = false;
             this._isCentered = false;
             this._isActive = false;
-            
+
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
 
@@ -147,20 +147,20 @@ module objects
             {
                 this.isCentered = fourth;
             }
-            
+
 
             if((typeof third == "number") && (typeof fourth == "number"))
             {
-                this.position = new Vector2(third, fourth, this);
+                this.position = new util.Vector2(third, fourth, this);
             }
 
-            if(third instanceof Vector2)
+            if(third instanceof util.Vector2)
             {
                 this.position = third;
             }
 
             this.type = enums.GameObjectType.UNDEFINED;
-            
+
 
         }
 
@@ -189,7 +189,7 @@ module objects
         public abstract Start():void;
 
         public abstract Update():void;
-        
+
         public abstract Reset():void;
 
     }

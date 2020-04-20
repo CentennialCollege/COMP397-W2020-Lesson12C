@@ -33,7 +33,7 @@ var util;
             return value;
         };
         Mathf.LimitMagnitude = function (vector, magnitude) {
-            var length = objects.Vector2.magnitude(vector);
+            var length = util.Vector2.magnitude(vector);
             if (length > magnitude) {
                 var limiter = magnitude / length;
                 vector.x *= limiter;
@@ -70,17 +70,17 @@ var util;
          * lerps between to color objects at some tValue;
          *
          * @export
-         * @param {objects.Color} a
-         * @param {objects.Color} b
+         * @param {util.Colour} a
+         * @param {util.Colour} b
          * @param {number} t
-         * @returns {objects.Color}
+         * @returns {util.Colour}
          */
         Mathf.LerpColor = function (a, b, t) {
             var red = a.r + (b.r - a.r) * Mathf.Clamp01(t);
             var green = a.g + (b.g - a.g) * Mathf.Clamp01(t);
             var blue = a.b + (b.b - a.b) * Mathf.Clamp01(t);
             var alpha = a.a + (b.a - a.a) * Mathf.Clamp01(t);
-            return new objects.Color(red, green, blue, alpha);
+            return new util.Colour(red, green, blue, alpha);
         };
         Mathf.RandomRange = function (min, max) {
             return Math.random() * (max - min + 1) + min;

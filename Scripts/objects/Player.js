@@ -32,7 +32,7 @@ var objects;
             this.type = enums.GameObjectType.PLAYER;
         };
         Player.prototype.Update = function () {
-            this.position = new objects.Vector2(this.stage.mouseX, this.stage.mouseY);
+            this.position = new util.Vector2(this.stage.mouseX, this.stage.mouseY);
         };
         Player.prototype.Reset = function () {
         };

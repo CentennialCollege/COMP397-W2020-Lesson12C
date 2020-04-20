@@ -1,4 +1,4 @@
-module objects
+module ui
 {
     export class Label extends createjs.Text
     {
@@ -47,7 +47,7 @@ module objects
             public labelString:string = "empty label",
             public fontSize: string = "12px",
             public fontFamily: string = "Consolas",
-            fontColour: string = config.Color.BLACK,
+            fontColour: string = config.Colour.BLACK,
             x: number = 0, y: number = 0, isCentered:boolean = false)
             {
                 super(labelString, fontSize + " " + fontFamily, fontColour);

@@ -12,30 +12,30 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var Button = /** @class */ (function (_super) {
         __extends(Button, _super);
         // CONSTRUCTOR
         function Button(labelString, defaultLabelColour, mouseOverLabelColour, width, height, defaultBackColour, mouseOverBackColour, borderColour, position, isCentered) {
             if (labelString === void 0) { labelString = "Button"; }
-            if (defaultLabelColour === void 0) { defaultLabelColour = config.Color.BLACK; }
-            if (mouseOverLabelColour === void 0) { mouseOverLabelColour = config.Color.WHITE; }
+            if (defaultLabelColour === void 0) { defaultLabelColour = config.Colour.BLACK; }
+            if (mouseOverLabelColour === void 0) { mouseOverLabelColour = config.Colour.WHITE; }
             if (width === void 0) { width = 0; }
             if (height === void 0) { height = 0; }
-            if (defaultBackColour === void 0) { defaultBackColour = config.Color.WHITE_SMOKE; }
-            if (mouseOverBackColour === void 0) { mouseOverBackColour = config.Color.LIGHT_GREY; }
-            if (borderColour === void 0) { borderColour = config.Color.DARK_GREY; }
-            if (position === void 0) { position = new objects.Vector2(); }
+            if (defaultBackColour === void 0) { defaultBackColour = config.Colour.WHITE_SMOKE; }
+            if (mouseOverBackColour === void 0) { mouseOverBackColour = config.Colour.LIGHT_GREY; }
+            if (borderColour === void 0) { borderColour = config.Colour.DARK_GREY; }
+            if (position === void 0) { position = new util.Vector2(); }
             if (isCentered === void 0) { isCentered = false; }
             var _this = _super.call(this) || this;
             _this.defaultLabelColour = defaultLabelColour;
             _this.mouseOverLabelColour = mouseOverLabelColour;
             var fontSize = (height * 0.5) + "px";
-            _this.label = new objects.Label(labelString, fontSize, "Consolas", _this.defaultLabelColour, width * 0.5, height * 0.5, true);
-            _this.defaultBackColour = new objects.Color(defaultBackColour);
-            _this.mouseOverBackColour = new objects.Color(mouseOverBackColour);
-            _this.borderColour = new objects.Color(borderColour);
+            _this.label = new ui.Label(labelString, fontSize, "Consolas", _this.defaultLabelColour, width * 0.5, height * 0.5, true);
+            _this.defaultBackColour = new util.Colour(defaultBackColour);
+            _this.mouseOverBackColour = new util.Colour(mouseOverBackColour);
+            _this.borderColour = new util.Colour(borderColour);
             _this.shape = new createjs.Shape();
             _this.width = width;
             _this.height = height;
@@ -43,7 +43,7 @@ var objects;
                 _this.regX = _this.width * 0.5;
                 _this.regY = _this.height * 0.5;
             }
-            _this.position = new objects.Vector2(position.x, position.y, _this);
+            _this.position = new util.Vector2(position.x, position.y, _this);
             _this._buildDefaultButtonShape();
             _this.setBounds(position.x, position.y, _this.width, _this.height);
             _this.addChild(_this.shape);
@@ -193,6 +193,6 @@ var objects;
         };
         return Button;
     }(createjs.Container));
-    objects.Button = Button;
-})(objects || (objects = {}));
+    ui.Button = Button;
+})(ui || (ui = {}));
 //# sourceMappingURL=Button.js.map

@@ -16,7 +16,7 @@ module objects
 
         // PRIVATE METHODS
         protected _checkBounds(): void {
-           
+
         }
 
         // PUBLIC METHODS
@@ -27,13 +27,13 @@ module objects
         }
 
         public Update(): void {
-           this.position = new Vector2(this.stage.mouseX, this.stage.mouseY);
+           this.position = new util.Vector2(this.stage.mouseX, this.stage.mouseY);
         }
 
         public Reset(): void {
-           
+
         }
 
-        
+
     }
 }

@@ -1,6 +1,6 @@
 "use strict";
-var objects;
-(function (objects) {
+var util;
+(function (util) {
     var Vector2 = /** @class */ (function () {
         function Vector2(first, second, third) {
             if (first === void 0) { first = 0; }
@@ -180,6 +180,6 @@ var objects;
         };
         return Vector2;
     }());
-    objects.Vector2 = Vector2;
-})(objects || (objects = {}));
+    util.Vector2 = Vector2;
+})(util || (util = {}));
 //# sourceMappingURL=Vector2.js.map

@@ -1,6 +1,6 @@
-module scenes
+module enums
 {
-    export enum State
+    export enum SceneState
     {
         NO_SCENE = -1,
         START,

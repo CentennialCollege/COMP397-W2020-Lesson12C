@@ -1,7 +1,7 @@
 "use strict";
-var objects;
-(function (objects) {
-    var Color = /** @class */ (function () {
+var util;
+(function (util) {
+    var Colour = /** @class */ (function () {
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Color.
@@ -12,7 +12,7 @@ var objects;
          * @param {number} [a=0] alpha color value
          * @memberof Color
          */
-        function Color(r, g, b, a) {
+        function Colour(r, g, b, a) {
             if (r === void 0) { r = 0; }
             if (g === void 0) { g = 0; }
             if (b === void 0) { b = 0; }
@@ -32,7 +32,7 @@ var objects;
                 this._arrayToColor(r);
             }
         }
-        Object.defineProperty(Color.prototype, "r", {
+        Object.defineProperty(Colour.prototype, "r", {
             // PUBLIC PROPERTIES
             /**
              * This property returns the Red value of the Color object
@@ -58,7 +58,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "g", {
+        Object.defineProperty(Colour.prototype, "g", {
             /**
             * This property returns the Green value of the Color object
             *
@@ -83,7 +83,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "b", {
+        Object.defineProperty(Colour.prototype, "b", {
             /**
              * This property returns the Blue value of the Color object
              *
@@ -108,7 +108,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "a", {
+        Object.defineProperty(Colour.prototype, "a", {
             /**
              * This property returns the Alpha value of the Color object
              *
@@ -132,7 +132,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "hex", {
+        Object.defineProperty(Colour.prototype, "hex", {
             /**
              * This property returns a hex reprentation of the Color object
              * Does not include the alpha value
@@ -146,7 +146,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "fullHex", {
+        Object.defineProperty(Colour.prototype, "fullHex", {
             /**
              * This property returns a hex representation of the Color object
              *
@@ -159,7 +159,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "rgb", {
+        Object.defineProperty(Colour.prototype, "rgb", {
             /**
              * This property returns a number array composed of the r, g, and b components of the Color object.
              * Values range from 0 to 255.
@@ -183,7 +183,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Color.prototype, "normalize", {
+        Object.defineProperty(Colour.prototype, "normalize", {
             /**
              * This property returns a number array composed of the components of the Color object
              * Values range from 0 to 1
@@ -205,7 +205,7 @@ var objects;
          * @returns {string}
          * @memberof Color
          */
-        Color.prototype.toString = function () {
+        Colour.prototype.toString = function () {
             return "(R: " + this.r + " G: " + this.g + " B: " + this.b + " A: " + this.a + ")";
         };
         /**
@@ -215,7 +215,7 @@ var objects;
          * @returns {string}
          * @memberof Color
          */
-        Color.prototype.decimalToHex = function (decimal) {
+        Colour.prototype.decimalToHex = function (decimal) {
             if (decimal === void 0) { decimal = 0; }
             var hex = Number(decimal).toString(16);
             if (hex.length < 2) {
@@ -228,22 +228,22 @@ var objects;
          * This method returns a number array of normalized values (between 0 and 1)
          *
          * @static
-         * @param {Color} color
+         * @param {Colour} color
          * @returns {number[]}
          * @memberof Color
          */
-        Color.normalize = function (color) {
+        Colour.normalize = function (color) {
             return [color.r / 255.00, color.g / 255.00, color.b / 255.00, color.a / 255.00];
         };
         /**
          * This method the Hex Color representation of an R, G, B color object
          *
          * @static
-         * @param {Color} color
+         * @param {Colour} color
          * @returns {string}
          * @memberof Color
          */
-        Color.RGBToHex = function (color) {
+        Colour.RGBToHex = function (color) {
             return "#" + color.decimalToHex(color.r) + color.decimalToHex(color.g) + color.decimalToHex(color.b);
         };
         /**
@@ -255,123 +255,123 @@ var objects;
          * @returns {number[]}
          * @memberof Color
          */
-        Color.HexToRGB = function (color) {
+        Colour.HexToRGB = function (color) {
             var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
             return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
         };
-        Color.HexToColor = function (color) {
+        Colour.HexToColor = function (color) {
             var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
-            return new Color(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), 255);
+            return new Colour(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), 255);
         };
-        Color.RandomRange = function (colorA, colorB) {
+        Colour.RandomRange = function (colorA, colorB) {
             var Red = Math.floor(util.Mathf.RandomRange(colorA.r, colorB.r));
             var Green = Math.floor(util.Mathf.RandomRange(colorA.g, colorB.g));
             var Blue = Math.floor(util.Mathf.RandomRange(colorA.b, colorB.b));
             var Alpha = Math.floor(util.Mathf.RandomRange(colorA.a, colorB.a));
-            return new objects.Color(Red, Green, Blue, Alpha);
+            return new util.Colour(Red, Green, Blue, Alpha);
         };
         // PUBLIC COLOR PRESETS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        Color.Azure = function () {
-            return new Color(config.Color.AZURE);
+        Colour.Azure = function () {
+            return new Colour(config.Colour.AZURE);
         };
-        Color.Black = function () {
-            return new Color(0, 0, 0, 255);
+        Colour.Black = function () {
+            return new Colour(0, 0, 0, 255);
         };
-        Color.Blue = function () {
-            return new Color(0, 0, 255, 255);
+        Colour.Blue = function () {
+            return new Colour(0, 0, 255, 255);
         };
-        Color.Brown = function () {
-            return new Color(config.Color.BROWN);
+        Colour.Brown = function () {
+            return new Colour(config.Colour.BROWN);
         };
-        Color.Crimson = function () {
-            return new Color(config.Color.CRIMSON);
+        Colour.Crimson = function () {
+            return new Colour(config.Colour.CRIMSON);
         };
-        Color.Cyan = function () {
-            return new Color(config.Color.CYAN);
+        Colour.Cyan = function () {
+            return new Colour(config.Colour.CYAN);
         };
-        Color.DarkBlue = function () {
-            return new Color(config.Color.DARK_BLUE);
+        Colour.DarkBlue = function () {
+            return new Colour(config.Colour.DARK_BLUE);
         };
-        Color.DarkGrey = function () {
-            return new Color(config.Color.DARK_GREY);
+        Colour.DarkGrey = function () {
+            return new Colour(config.Colour.DARK_GREY);
         };
-        Color.DarkOrange = function () {
-            return new Color(config.Color.DARK_ORANGE);
+        Colour.DarkOrange = function () {
+            return new Colour(config.Colour.DARK_ORANGE);
         };
-        Color.DarkRed = function () {
-            return new Color(config.Color.DARK_RED);
+        Colour.DarkRed = function () {
+            return new Colour(config.Colour.DARK_RED);
         };
-        Color.Gold = function () {
-            return new Color(config.Color.GOLD);
+        Colour.Gold = function () {
+            return new Colour(config.Colour.GOLD);
         };
-        Color.Green = function () {
-            return new Color(0, 255, 0, 255);
+        Colour.Green = function () {
+            return new Colour(0, 255, 0, 255);
         };
-        Color.Grey = function () {
-            return new Color(config.Color.GREY);
+        Colour.Grey = function () {
+            return new Colour(config.Colour.GREY);
         };
-        Color.HotPink = function () {
-            return new Color(config.Color.HOT_PINK);
+        Colour.HotPink = function () {
+            return new Colour(config.Colour.HOT_PINK);
         };
-        Color.Indigo = function () {
-            return new Color(config.Color.INDIGO);
+        Colour.Indigo = function () {
+            return new Colour(config.Colour.INDIGO);
         };
-        Color.Ivory = function () {
-            return new Color(config.Color.IVORY);
+        Colour.Ivory = function () {
+            return new Colour(config.Colour.IVORY);
         };
-        Color.LightBlue = function () {
-            return new Color(config.Color.LIGHT_BLUE);
+        Colour.LightBlue = function () {
+            return new Colour(config.Colour.LIGHT_BLUE);
         };
-        Color.LightGrey = function () {
-            return new Color(config.Color.LIGHT_GREY);
+        Colour.LightGrey = function () {
+            return new Colour(config.Colour.LIGHT_GREY);
         };
-        Color.LightPink = function () {
-            return new Color(config.Color.LIGHT_PINK);
+        Colour.LightPink = function () {
+            return new Colour(config.Colour.LIGHT_PINK);
         };
-        Color.LightYellow = function () {
-            return new Color(config.Color.LIGHT_YELLOW);
+        Colour.LightYellow = function () {
+            return new Colour(config.Colour.LIGHT_YELLOW);
         };
-        Color.Magenta = function () {
-            return new Color(config.Color.MAGENTA);
+        Colour.Magenta = function () {
+            return new Colour(config.Colour.MAGENTA);
         };
-        Color.Maroon = function () {
-            return new Color(config.Color.MAROON);
+        Colour.Maroon = function () {
+            return new Colour(config.Colour.MAROON);
         };
-        Color.Navy = function () {
-            return new Color(config.Color.NAVY);
+        Colour.Navy = function () {
+            return new Colour(config.Colour.NAVY);
         };
-        Color.Olive = function () {
-            return new Color(config.Color.OLIVE);
+        Colour.Olive = function () {
+            return new Colour(config.Colour.OLIVE);
         };
-        Color.Orange = function () {
-            return new Color(config.Color.ORANGE);
+        Colour.Orange = function () {
+            return new Colour(config.Colour.ORANGE);
         };
-        Color.Peach = function () {
-            return new Color(config.Color.PEACH);
+        Colour.Peach = function () {
+            return new Colour(config.Colour.PEACH);
         };
-        Color.Purple = function () {
-            return new Color(config.Color.PURPLE);
+        Colour.Purple = function () {
+            return new Colour(config.Colour.PURPLE);
         };
-        Color.Red = function () {
-            return new Color(255, 0, 0, 255);
+        Colour.Red = function () {
+            return new Colour(255, 0, 0, 255);
         };
-        Color.Silver = function () {
-            return new Color(config.Color.SILVER);
+        Colour.Silver = function () {
+            return new Colour(config.Colour.SILVER);
         };
-        Color.Teal = function () {
-            return new Color(config.Color.TEAL);
+        Colour.Teal = function () {
+            return new Colour(config.Colour.TEAL);
         };
-        Color.Violet = function () {
-            return new Color(config.Color.VIOLET);
+        Colour.Violet = function () {
+            return new Colour(config.Colour.VIOLET);
         };
-        Color.White = function () {
-            return new Color(255, 255, 255, 255);
+        Colour.White = function () {
+            return new Colour(255, 255, 255, 255);
         };
-        Color.WhiteSmoke = function () {
-            return new Color(config.Color.WHITE_SMOKE);
+        Colour.WhiteSmoke = function () {
+            return new Colour(config.Colour.WHITE_SMOKE);
         };
-        Color.Yellow = function () {
-            return new Color(config.Color.YELLOW);
+        Colour.Yellow = function () {
+            return new Colour(config.Colour.YELLOW);
         };
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -384,7 +384,7 @@ var objects;
          * @param {number} [a]
          * @memberof Color
          */
-        Color.prototype._setRGBA = function (r, g, b, a) {
+        Colour.prototype._setRGBA = function (r, g, b, a) {
             if (r) {
                 this.r = Math.floor(r);
             }
@@ -409,7 +409,7 @@ var objects;
          * @param {string} color
          * @memberof Color
          */
-        Color.prototype._setHexColor = function (color) {
+        Colour.prototype._setHexColor = function (color) {
             var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
             this.r = parseInt(result[1], 16);
             this.g = parseInt(result[2], 16);
@@ -423,7 +423,7 @@ var objects;
          * @param {number[]} color
          * @memberof Color
          */
-        Color.prototype._arrayToColor = function (color) {
+        Colour.prototype._arrayToColor = function (color) {
             var length = color.length;
             if (length > 0) {
                 this.r = color[0];
@@ -446,7 +446,7 @@ var objects;
          * @returns {number}
          * @memberof Color
          */
-        Color.prototype._clampColor0To255 = function (value) {
+        Colour.prototype._clampColor0To255 = function (value) {
             var color = value;
             if (value < 0) {
                 color = 0;
@@ -463,7 +463,7 @@ var objects;
          * @returns {string}
          * @memberof Color
          */
-        Color.prototype._toFullHexString = function () {
+        Colour.prototype._toFullHexString = function () {
             return "#" + this.decimalToHex(this.r) + this.decimalToHex(this.g) + this.decimalToHex(this.b) + this.decimalToHex(this.a);
         };
         /**
@@ -474,11 +474,11 @@ var objects;
          * @returns {string}
          * @memberof Color
          */
-        Color.prototype._toHexString = function () {
+        Colour.prototype._toHexString = function () {
             return "#" + this.decimalToHex(this.r) + this.decimalToHex(this.g) + this.decimalToHex(this.b);
         };
-        return Color;
+        return Colour;
     }());
-    objects.Color = Color;
-})(objects || (objects = {}));
-//# sourceMappingURL=Color.js.map
+    util.Colour = Colour;
+})(util || (util = {}));
+//# sourceMappingURL=Colour.js.map

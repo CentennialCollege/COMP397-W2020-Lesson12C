@@ -46,8 +46,8 @@ module util
         return value;
         }
 
-        public static LimitMagnitude(vector: objects.Vector2, magnitude: number): objects.Vector2 {
-            let length: number = objects.Vector2.magnitude(vector);
+        public static LimitMagnitude(vector: util.Vector2, magnitude: number): util.Vector2 {
+            let length: number = util.Vector2.magnitude(vector);
 
             if (length > magnitude) {
                 let limiter = magnitude / length;
@@ -93,18 +93,18 @@ module util
          * lerps between to color objects at some tValue;
          *
          * @export
-         * @param {objects.Color} a
-         * @param {objects.Color} b
+         * @param {util.Colour} a
+         * @param {util.Colour} b
          * @param {number} t
-         * @returns {objects.Color}
+         * @returns {util.Colour}
          */
-        public static LerpColor(a: objects.Color, b: objects.Color, t: number): objects.Color
+        public static LerpColor(a: util.Colour, b: util.Colour, t: number): util.Colour
         {
             let red = a.r + (b.r - a.r) * Mathf.Clamp01(t);
             let green = a.g + (b.g - a.g) * Mathf.Clamp01(t);
             let blue = a.b + (b.b - a.b) * Mathf.Clamp01(t);
             let alpha = a.a + (b.a - a.a) * Mathf.Clamp01(t);
-            return new objects.Color(red, green, blue, alpha);
+            return new util.Colour(red, green, blue, alpha);
         }
 
 

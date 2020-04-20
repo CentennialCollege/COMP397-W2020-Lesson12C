@@ -1,4 +1,5 @@
-module objects {
+module ui
+{
     export class Slider extends createjs.Shape {
         // PRIVATE INSTANCE VARIABLES
         private _value: number;
@@ -7,10 +8,10 @@ module objects {
         private _max: number;
         private _width: number;
         private _height: number;
-        private _trackColor: objects.Color;
-        private _thumbColor: objects.Color;
+        private _trackColor: util.Colour;
+        private _thumbColor: util.Colour;
         private _orientation: enums.SliderOrientation;
-        private _position : objects.Vector2;
+        private _position : util.Vector2;
 
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++
 
@@ -20,7 +21,7 @@ module objects {
          * @type {Vector2}
          * @memberof Slider
          */
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
@@ -30,7 +31,7 @@ module objects {
          *
          * @memberof Slider
          */
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
@@ -79,8 +80,8 @@ module objects {
         * @memberof Slider
         */
        constructor(value: number = 50, min: number = 1, max: number = 100, width: number = 100, height: number = 20,
-                    orientation: enums.SliderOrientation = enums.SliderOrientation.HORIZONTAL, trackColor: string = config.Color.WHITE_SMOKE,
-                    thumbColor: string = config.Color.DARK_GREY, x: number = 0, y: number = 0, isCentered: boolean = false)
+                    orientation: enums.SliderOrientation = enums.SliderOrientation.HORIZONTAL, trackColor: string = config.Colour.WHITE_SMOKE,
+                    thumbColor: string = config.Colour.DARK_GREY, x: number = 0, y: number = 0, isCentered: boolean = false)
         {
             super();
 
@@ -91,8 +92,8 @@ module objects {
             this._width = width;
             this._height = height;
             this.value = value;
-            this._trackColor = new objects.Color(trackColor);
-            this._thumbColor = new objects.Color(thumbColor);
+            this._trackColor = new util.Colour(trackColor);
+            this._thumbColor = new util.Colour(thumbColor);
             this.cursor = "pointer";
             this._orientation = orientation
 

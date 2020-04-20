@@ -12,27 +12,27 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var ui;
+(function (ui) {
     var CheckBox = /** @class */ (function (_super) {
         __extends(CheckBox, _super);
         // constructor
         function CheckBox(size, borderColour, fillColour, position, isCentered) {
             if (size === void 0) { size = 20; }
-            if (borderColour === void 0) { borderColour = config.Color.BLACK; }
-            if (fillColour === void 0) { fillColour = config.Color.DARK_GREY; }
-            if (position === void 0) { position = new objects.Vector2(0, 0); }
+            if (borderColour === void 0) { borderColour = config.Colour.BLACK; }
+            if (fillColour === void 0) { fillColour = config.Colour.DARK_GREY; }
+            if (position === void 0) { position = new util.Vector2(0, 0); }
             if (isCentered === void 0) { isCentered = false; }
             var _this = _super.call(this) || this;
             _this.size = size;
-            _this._borderColour = new objects.Color(borderColour);
-            _this._fillColour = new objects.Color(fillColour);
+            _this._borderColour = new util.Colour(borderColour);
+            _this._fillColour = new util.Colour(fillColour);
             if (isCentered) {
                 _this.regX = size * 0.5;
                 _this.regY = size * 0.5;
             }
             _this._buildUncheckedBox();
-            _this.position = new objects.Vector2(position.x, position.y, _this);
+            _this.position = new util.Vector2(position.x, position.y, _this);
             return _this;
         }
         Object.defineProperty(CheckBox.prototype, "checked", {
@@ -79,12 +79,12 @@ var objects;
             this.graphics.clear();
             this.graphics.setStrokeStyle(2);
             this.graphics.beginStroke(this._borderColour.hex);
-            this.graphics.beginFill(config.Color.WHITE_SMOKE);
+            this.graphics.beginFill(config.Colour.WHITE_SMOKE);
             this.graphics.drawRect(0, 0, this.size, this.size);
             this.graphics.endFill();
             this.graphics.moveTo(2, 2);
             this.graphics.setStrokeStyle(2);
-            this.graphics.beginStroke(config.Color.WHITE);
+            this.graphics.beginStroke(config.Colour.WHITE);
             this.graphics.drawRect(2, 2, this.size - 4, this.size - 4);
             this.graphics.endStroke();
         };
@@ -97,7 +97,7 @@ var objects;
             this.graphics.endFill();
             this.graphics.moveTo(2, 2);
             this.graphics.setStrokeStyle(2);
-            this.graphics.beginStroke(config.Color.WHITE);
+            this.graphics.beginStroke(config.Colour.WHITE);
             this.graphics.drawRect(2, 2, this.size - 4, this.size - 4);
             this.graphics.endStroke();
         };
@@ -106,6 +106,6 @@ var objects;
         };
         return CheckBox;
     }(createjs.Shape));
-    objects.CheckBox = CheckBox;
-})(objects || (objects = {}));
+    ui.CheckBox = CheckBox;
+})(ui || (ui = {}));
 //# sourceMappingURL=CheckBox.js.map

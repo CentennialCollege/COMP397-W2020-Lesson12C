@@ -1,22 +1,22 @@
-module objects
+module ui
 {
     export class DropDown extends createjs.Container
     {
         // PRIVATE INSTANCE VARIABLES
         private _shape : createjs.Shape;
         private _itemList : Array<string>;
-        private _buttonList: Array<objects.Button>;
+        private _buttonList: Array<ui.Button>;
         private _itemSelected : number;
 
-        private _position : objects.Vector2;
+        private _position : util.Vector2;
         private _width : number;
         private _height : number;
 
-        private _defualtBackColour : objects.Color;
-        private _borderColour : objects.Color;
+        private _defualtBackColour : util.Colour;
+        private _borderColour : util.Colour;
 
         private _defaultLabelColor : string;
-        private _mouseOverBackColour : objects.Color;
+        private _mouseOverBackColour : util.Colour;
         private _mouseOverLabelColour : string;
 
         // PUBLIC PROPERTIES
@@ -50,12 +50,12 @@ module objects
             this._itemSelected = v;
         }
 
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
 
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
@@ -82,22 +82,22 @@ module objects
             this._height = v;
         }
 
-        public get defaultBackColour() : objects.Color
+        public get defaultBackColour() : util.Colour
         {
             return this._defualtBackColour;
         }
 
-        public set defaultBackColour(v : objects.Color)
+        public set defaultBackColour(v : util.Colour)
         {
             this._defualtBackColour = v;
         }
 
-        public get mouseOverBackColour() : objects.Color
+        public get mouseOverBackColour() : util.Colour
         {
             return this._mouseOverBackColour;
         }
 
-        public set mouseOverBackColour(v : objects.Color)
+        public set mouseOverBackColour(v : util.Colour)
         {
             this._mouseOverBackColour = v;
         }
@@ -122,25 +122,25 @@ module objects
             this._mouseOverLabelColour = v;
         }
 
-        public get borderColour() : objects.Color
+        public get borderColour() : util.Colour
         {
             return this._borderColour;
         }
 
-        public set borderColour(v : objects.Color)
+        public set borderColour(v : util.Colour)
         {
             this._borderColour = v;
         }
 
         // CONSTRUCTOR
         constructor(list:Array<string>,
-            defaultLabelColour:string = config.Color.BLACK,
-            mouseOverLabelColour: string = config.Color.WHITE,
+            defaultLabelColour:string = config.Colour.BLACK,
+            mouseOverLabelColour: string = config.Colour.WHITE,
             width:number=0, height:number=0,
-            defaultBackColour: string = config.Color.WHITE_SMOKE,
-            mouseOverBackColour: string = config.Color.LIGHT_GREY,
-            borderColour: string = config.Color.BLACK,
-            position:objects.Vector2 = new objects.Vector2(), isCentered: boolean = false)
+            defaultBackColour: string = config.Colour.WHITE_SMOKE,
+            mouseOverBackColour: string = config.Colour.LIGHT_GREY,
+            borderColour: string = config.Colour.BLACK,
+            position:util.Vector2 = new util.Vector2(), isCentered: boolean = false)
         {
             super();
 
@@ -149,9 +149,9 @@ module objects
             this.defaultLabelColour = defaultLabelColour;
             this.mouseOverLabelColour = mouseOverLabelColour;
 
-            this.defaultBackColour = new objects.Color(defaultBackColour);
-            this.mouseOverBackColour = new objects.Color(mouseOverBackColour);
-            this.borderColour = new objects.Color(borderColour);
+            this.defaultBackColour = new util.Colour(defaultBackColour);
+            this.mouseOverBackColour = new util.Colour(mouseOverBackColour);
+            this.borderColour = new util.Colour(borderColour);
 
             this.shape = new createjs.Shape();
 
@@ -201,12 +201,12 @@ module objects
             this.itemList.unshift(' ');
             this.itemSelected = 0;
 
-            this._buttonList = new Array<objects.Button>();
+            this._buttonList = new Array<ui.Button>();
 
             for (let itemIndex = 0; itemIndex < this.itemList.length; itemIndex++) {
 
-                let itemPosition = new objects.Vector2(1, 1 + (this.height * itemIndex));
-                let itemButton = new objects.Button(this.itemList[itemIndex], this.defaultLabelColour, this.mouseOverLabelColour,
+                let itemPosition = new util.Vector2(1, 1 + (this.height * itemIndex));
+                let itemButton = new ui.Button(this.itemList[itemIndex], this.defaultLabelColour, this.mouseOverLabelColour,
                     this.width - 2, this.height - 2, this.defaultBackColour.hex, this.mouseOverBackColour.hex, this.defaultBackColour.hex, itemPosition, false);
 
                 itemButton.label.isCentered = false;

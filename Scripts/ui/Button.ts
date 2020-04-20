@@ -1,29 +1,29 @@
-module objects
+module ui
 {
     export class Button extends createjs.Container
     {
         // PRIVATE INSTANCE VARIABLES
-        private _label : objects.Label;
+        private _label : ui.Label;
         private _shape : createjs.Shape;
 
-        private _position : objects.Vector2;
+        private _position : util.Vector2;
         private _width : number;
         private _height : number;
 
-        private _defaultBackColour : objects.Color;
-        private _borderColour : objects.Color;
+        private _defaultBackColour : util.Colour;
+        private _borderColour : util.Colour;
 
         private _defaultLabelColor : string;
-        private _mouseOverBackColour : objects.Color;
+        private _mouseOverBackColour : util.Colour;
         private _mouseOverLabelColour : string;
 
         // PUBLIC PROPERTIES
-        public get label() : objects.Label
+        public get label() : ui.Label
         {
             return this._label;
         }
 
-        public set label(v : objects.Label)
+        public set label(v : ui.Label)
         {
             this._label = v;
         }
@@ -38,12 +38,12 @@ module objects
             this._shape = v;
         }
 
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
 
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
@@ -70,32 +70,32 @@ module objects
             this._height = v;
         }
 
-        public get defaultBackColour() : objects.Color
+        public get defaultBackColour() : util.Colour
         {
             return this._defaultBackColour;
         }
 
-        public set defaultBackColour(v : objects.Color)
+        public set defaultBackColour(v : util.Colour)
         {
             this._defaultBackColour = v;
         }
 
-        public get mouseOverBackColour() : objects.Color
+        public get mouseOverBackColour() : util.Colour
         {
             return this._mouseOverBackColour;
         }
 
-        public set mouseOverBackColour(v : objects.Color)
+        public set mouseOverBackColour(v : util.Colour)
         {
             this._mouseOverBackColour = v;
         }
 
-        public get borderColour() : objects.Color
+        public get borderColour() : util.Colour
         {
             return this._borderColour;
         }
 
-        public set borderColour(v : objects.Color)
+        public set borderColour(v : util.Colour)
         {
             this._borderColour = v;
         }
@@ -123,13 +123,13 @@ module objects
 
         // CONSTRUCTOR
         constructor(labelString:string = "Button",
-                    defaultLabelColour:string = config.Color.BLACK,
-                    mouseOverLabelColour: string = config.Color.WHITE,
+                    defaultLabelColour:string = config.Colour.BLACK,
+                    mouseOverLabelColour: string = config.Colour.WHITE,
                     width:number=0, height:number=0,
-                    defaultBackColour: string = config.Color.WHITE_SMOKE,
-                    mouseOverBackColour: string = config.Color.LIGHT_GREY,
-                    borderColour: string = config.Color.DARK_GREY,
-                    position:objects.Vector2 = new objects.Vector2(), isCentered: boolean = false)
+                    defaultBackColour: string = config.Colour.WHITE_SMOKE,
+                    mouseOverBackColour: string = config.Colour.LIGHT_GREY,
+                    borderColour: string = config.Colour.DARK_GREY,
+                    position:util.Vector2 = new util.Vector2(), isCentered: boolean = false)
         {
             super();
 
@@ -137,11 +137,11 @@ module objects
             this.mouseOverLabelColour = mouseOverLabelColour;
 
             let fontSize = (height * 0.5) + "px";
-            this.label = new objects.Label(labelString, fontSize, "Consolas", this.defaultLabelColour, width * 0.5, height * 0.5, true);
+            this.label = new ui.Label(labelString, fontSize, "Consolas", this.defaultLabelColour, width * 0.5, height * 0.5, true);
 
-            this.defaultBackColour = new objects.Color(defaultBackColour);
-            this.mouseOverBackColour = new objects.Color(mouseOverBackColour);
-            this.borderColour = new objects.Color(borderColour);
+            this.defaultBackColour = new util.Colour(defaultBackColour);
+            this.mouseOverBackColour = new util.Colour(mouseOverBackColour);
+            this.borderColour = new util.Colour(borderColour);
 
             this.shape = new createjs.Shape();
 
@@ -153,7 +153,7 @@ module objects
                 this.regY = this.height * 0.5;
             }
 
-            this.position = new objects.Vector2(position.x, position.y, this);
+            this.position = new util.Vector2(position.x, position.y, this);
 
             this._buildDefaultButtonShape();
 

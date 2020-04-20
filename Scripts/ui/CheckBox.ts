@@ -1,12 +1,12 @@
-module objects
+module ui
 {
     export class CheckBox extends createjs.Shape
     {
         // private instance variables
-        private _position:Vector2;
+        private _position:util.Vector2;
         private _size : number;
-        private _borderColour : objects.Color;
-        private _fillColour: objects.Color;
+        private _borderColour : util.Colour;
+        private _fillColour: util.Colour;
         private _checked : boolean;
 
 
@@ -31,12 +31,12 @@ module objects
 
 
         // public properties
-        get position():Vector2
+        get position():util.Vector2
         {
             return this._position;
         }
 
-        set position(newPosition:Vector2)
+        set position(newPosition:util.Vector2)
         {
             this._position = newPosition;
             this.x = newPosition.x;
@@ -56,16 +56,16 @@ module objects
         // constructor
         constructor(
             size:number = 20,
-            borderColour:string = config.Color.BLACK,
-            fillColour:string = config.Color.DARK_GREY,
-            position:objects.Vector2 = new objects.Vector2(0, 0),
+            borderColour:string = config.Colour.BLACK,
+            fillColour:string = config.Colour.DARK_GREY,
+            position:util.Vector2 = new util.Vector2(0, 0),
             isCentered:boolean = false)
         {
             super();
 
             this.size = size;
-            this._borderColour = new objects.Color(borderColour);
-            this._fillColour = new objects.Color(fillColour);
+            this._borderColour = new util.Colour(borderColour);
+            this._fillColour = new util.Colour(fillColour);
 
             if (isCentered) {
                 this.regX = size * 0.5;
@@ -74,7 +74,7 @@ module objects
 
             this._buildUncheckedBox();
 
-            this.position = new objects.Vector2(position.x, position.y, this);
+            this.position = new util.Vector2(position.x, position.y, this);
         }
 
         // private methods
@@ -83,13 +83,13 @@ module objects
             this.graphics.clear();
             this.graphics.setStrokeStyle(2);
             this.graphics.beginStroke(this._borderColour.hex);
-            this.graphics.beginFill(config.Color.WHITE_SMOKE);
+            this.graphics.beginFill(config.Colour.WHITE_SMOKE);
             this.graphics.drawRect(0, 0, this.size, this.size);
             this.graphics.endFill();
 
             this.graphics.moveTo(2, 2);
             this.graphics.setStrokeStyle(2);
-            this.graphics.beginStroke(config.Color.WHITE);
+            this.graphics.beginStroke(config.Colour.WHITE);
             this.graphics.drawRect(2, 2, this.size - 4, this.size - 4);
             this.graphics.endStroke();
         }
@@ -105,7 +105,7 @@ module objects
 
             this.graphics.moveTo(2, 2);
             this.graphics.setStrokeStyle(2);
-            this.graphics.beginStroke(config.Color.WHITE);
+            this.graphics.beginStroke(config.Colour.WHITE);
             this.graphics.drawRect(2, 2, this.size - 4, this.size - 4);
             this.graphics.endStroke();
         }

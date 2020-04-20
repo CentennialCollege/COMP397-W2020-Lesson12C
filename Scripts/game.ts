@@ -9,7 +9,7 @@ let Game = (function(){
 
     let stats:Stats;
 
-    let currentSceneState:scenes.State;
+    let currentSceneState:enums.SceneState;
     let currentScene: objects.Scene;
 
     let assets: createjs.LoadQueue;
@@ -107,8 +107,8 @@ let Game = (function(){
         oceanAtlas = new createjs.SpriteSheet(oceanData);
         config.Game.OCEAN_ATLAS = oceanAtlas;
 
-        currentSceneState = scenes.State.NO_SCENE;
-        config.Game.SCENE = scenes.State.START;
+        currentSceneState = enums.SceneState.NO_SCENE;
+        config.Game.SCENE = enums.SceneState.START;
     }
 
     /**
@@ -138,7 +138,7 @@ let Game = (function(){
         console.log(`%c Scene Switched...`, "color: green; font-size: 16px;");
 
         // clean up
-        if(currentSceneState != scenes.State.NO_SCENE)
+        if(currentSceneState != enums.SceneState.NO_SCENE)
         {
             currentScene.Clean();
             stage.removeAllChildren();
@@ -149,15 +149,15 @@ let Game = (function(){
 
         switch(config.Game.SCENE)
         {
-            case scenes.State.START:
+            case enums.SceneState.START:
                 console.log("switch to Start Scene");
                 currentScene = new scenes.Start();
                 break;
-            case scenes.State.PLAY:
+            case enums.SceneState.PLAY:
                 console.log("switch to Play Scene");
                 currentScene = new scenes.Play();
                 break;
-            case scenes.State.END:
+            case enums.SceneState.END:
                 console.log("switch to End Scene");
                 currentScene = new scenes.End();
                 break;

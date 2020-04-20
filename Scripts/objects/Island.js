@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Island() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "island", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "island", new util.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
@@ -30,13 +30,13 @@ var objects;
             }
         };
         Island.prototype._move = function () {
-            this.position = objects.Vector2.add(this.position, this.velocity);
+            this.position = util.Vector2.add(this.position, this.velocity);
         };
         // PUBLIC METHODS
         Island.prototype.Start = function () {
             this.type = enums.GameObjectType.ISLAND;
             this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new objects.Vector2(0, this._verticalSpeed);
+            this.velocity = new util.Vector2(0, this._verticalSpeed);
             this.Reset();
         };
         Island.prototype.Update = function () {
@@ -45,7 +45,7 @@ var objects;
         };
         Island.prototype.Reset = function () {
             var randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
-            this.position = new objects.Vector2(randomX, -this.height);
+            this.position = new util.Vector2(randomX, -this.height);
         };
         return Island;
     }(objects.GameObject));

@@ -1,5 +1,6 @@
-module objects {
-    export class Color {
+module util
+{
+    export class Colour {
         // PUBLIC INSTANCE VARIABLES
         private _r: number = 0;
         private _g: number = 0;
@@ -212,11 +213,11 @@ module objects {
          * This method returns a number array of normalized values (between 0 and 1)
          *
          * @static
-         * @param {Color} color
+         * @param {Colour} color
          * @returns {number[]}
          * @memberof Color
          */
-        public static normalize(color: Color): number[] {
+        public static normalize(color: Colour): number[] {
             return [color.r / 255.00, color.g / 255.00, color.b / 255.00, color.a / 255.00]
         }
 
@@ -224,11 +225,11 @@ module objects {
          * This method the Hex Color representation of an R, G, B color object
          *
          * @static
-         * @param {Color} color
+         * @param {Colour} color
          * @returns {string}
          * @memberof Color
          */
-        public static RGBToHex(color: Color): string {
+        public static RGBToHex(color: Colour): string {
             return "#" + color.decimalToHex(color.r) + color.decimalToHex(color.g) + color.decimalToHex(color.b);
         }
 
@@ -246,155 +247,155 @@ module objects {
             return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
         }
 
-        public static HexToColor(color: string): Color {
+        public static HexToColor(color: string): Colour {
             let result: RegExpExecArray = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
-            return new Color(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), 255);
+            return new Colour(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), 255);
         }
 
-        public static RandomRange(colorA: objects.Color, colorB: objects.Color): objects.Color {
+        public static RandomRange(colorA: util.Colour, colorB: util.Colour): util.Colour {
             let Red: number = Math.floor(util.Mathf.RandomRange(colorA.r, colorB.r));
             let Green: number = Math.floor(util.Mathf.RandomRange(colorA.g, colorB.g));
             let Blue: number = Math.floor(util.Mathf.RandomRange(colorA.b, colorB.b));
             let Alpha: number = Math.floor(util.Mathf.RandomRange(colorA.a, colorB.a));
-            return new objects.Color(Red, Green, Blue, Alpha);
+            return new util.Colour(Red, Green, Blue, Alpha);
         }
 
         // PUBLIC COLOR PRESETS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        public static Azure(): Color {
-            return new Color(config.Color.AZURE);
+        public static Azure(): Colour {
+            return new Colour(config.Colour.AZURE);
         }
 
-        public static Black(): Color {
-            return new Color(0, 0, 0, 255);
+        public static Black(): Colour {
+            return new Colour(0, 0, 0, 255);
         }
 
-        public static Blue(): Color {
-            return new Color(0, 0, 255, 255);
+        public static Blue(): Colour {
+            return new Colour(0, 0, 255, 255);
         }
 
-        public static Brown(): Color {
-            return new Color(config.Color.BROWN);
+        public static Brown(): Colour {
+            return new Colour(config.Colour.BROWN);
         }
 
-        public static Crimson(): Color {
-            return new Color(config.Color.CRIMSON);
+        public static Crimson(): Colour {
+            return new Colour(config.Colour.CRIMSON);
         }
 
-        public static Cyan(): Color {
-            return new Color(config.Color.CYAN);
+        public static Cyan(): Colour {
+            return new Colour(config.Colour.CYAN);
         }
 
-        public static DarkBlue(): Color {
-            return new Color(config.Color.DARK_BLUE);
+        public static DarkBlue(): Colour {
+            return new Colour(config.Colour.DARK_BLUE);
         }
 
-        public static DarkGrey(): Color {
-            return new Color(config.Color.DARK_GREY);
+        public static DarkGrey(): Colour {
+            return new Colour(config.Colour.DARK_GREY);
         }
 
-        public static DarkOrange(): Color {
-            return new Color(config.Color.DARK_ORANGE);
+        public static DarkOrange(): Colour {
+            return new Colour(config.Colour.DARK_ORANGE);
         }
 
-        public static DarkRed(): Color {
-            return new Color(config.Color.DARK_RED);
+        public static DarkRed(): Colour {
+            return new Colour(config.Colour.DARK_RED);
         }
 
-        public static Gold(): Color {
-            return new Color(config.Color.GOLD);
+        public static Gold(): Colour {
+            return new Colour(config.Colour.GOLD);
         }
 
-        public static Green(): Color {
-            return new Color(0, 255, 0, 255);
+        public static Green(): Colour {
+            return new Colour(0, 255, 0, 255);
         }
 
-        public static Grey(): Color {
-            return new Color(config.Color.GREY);
+        public static Grey(): Colour {
+            return new Colour(config.Colour.GREY);
         }
 
-        public static HotPink(): Color {
-            return new Color(config.Color.HOT_PINK);
+        public static HotPink(): Colour {
+            return new Colour(config.Colour.HOT_PINK);
         }
 
-        public static Indigo(): Color {
-            return new Color(config.Color.INDIGO);
+        public static Indigo(): Colour {
+            return new Colour(config.Colour.INDIGO);
         }
 
-        public static Ivory(): Color {
-            return new Color(config.Color.IVORY);
+        public static Ivory(): Colour {
+            return new Colour(config.Colour.IVORY);
         }
 
-        public static LightBlue(): Color {
-            return new Color(config.Color.LIGHT_BLUE);
+        public static LightBlue(): Colour {
+            return new Colour(config.Colour.LIGHT_BLUE);
         }
 
-        public static LightGrey(): Color {
-            return new Color(config.Color.LIGHT_GREY);
+        public static LightGrey(): Colour {
+            return new Colour(config.Colour.LIGHT_GREY);
         }
 
-        public static LightPink(): Color {
-            return new Color(config.Color.LIGHT_PINK);
+        public static LightPink(): Colour {
+            return new Colour(config.Colour.LIGHT_PINK);
         }
 
-        public static LightYellow(): Color {
-            return new Color(config.Color.LIGHT_YELLOW);
+        public static LightYellow(): Colour {
+            return new Colour(config.Colour.LIGHT_YELLOW);
         }
 
-        public static Magenta(): Color {
-            return new Color(config.Color.MAGENTA);
+        public static Magenta(): Colour {
+            return new Colour(config.Colour.MAGENTA);
         }
 
-        public static Maroon(): Color {
-            return new Color(config.Color.MAROON);
+        public static Maroon(): Colour {
+            return new Colour(config.Colour.MAROON);
         }
 
-        public static Navy(): Color {
-            return new Color(config.Color.NAVY);
+        public static Navy(): Colour {
+            return new Colour(config.Colour.NAVY);
         }
 
-        public static Olive(): Color {
-            return new Color(config.Color.OLIVE);
+        public static Olive(): Colour {
+            return new Colour(config.Colour.OLIVE);
         }
 
-        public static Orange(): Color {
-            return new Color(config.Color.ORANGE);
+        public static Orange(): Colour {
+            return new Colour(config.Colour.ORANGE);
         }
 
-        public static Peach(): Color {
-            return new Color(config.Color.PEACH);
+        public static Peach(): Colour {
+            return new Colour(config.Colour.PEACH);
         }
 
-        public static Purple(): Color {
-            return new Color(config.Color.PURPLE);
+        public static Purple(): Colour {
+            return new Colour(config.Colour.PURPLE);
         }
 
-        public static Red(): Color {
-            return new Color(255, 0, 0, 255);
+        public static Red(): Colour {
+            return new Colour(255, 0, 0, 255);
         }
 
-        public static Silver(): Color {
-            return new Color(config.Color.SILVER);
+        public static Silver(): Colour {
+            return new Colour(config.Colour.SILVER);
         }
 
-        public static Teal(): Color {
-            return new Color(config.Color.TEAL);
+        public static Teal(): Colour {
+            return new Colour(config.Colour.TEAL);
         }
 
-        public static Violet(): Color {
-            return new Color(config.Color.VIOLET);
+        public static Violet(): Colour {
+            return new Colour(config.Colour.VIOLET);
         }
 
-        public static White(): Color {
-            return new Color(255, 255, 255, 255);
+        public static White(): Colour {
+            return new Colour(255, 255, 255, 255);
         }
 
-        public static WhiteSmoke(): Color {
-            return new Color(config.Color.WHITE_SMOKE);
+        public static WhiteSmoke(): Colour {
+            return new Colour(config.Colour.WHITE_SMOKE);
         }
 
-        public static Yellow(): Color {
-            return new Color(config.Color.YELLOW);
+        public static Yellow(): Colour {
+            return new Colour(config.Colour.YELLOW);
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

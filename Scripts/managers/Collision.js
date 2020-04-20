@@ -7,7 +7,7 @@ var managers;
         Collision.squaredRadiusCheck = function (object1, object2) {
             // squared radius check
             var radii = object1.halfHeight + object2.halfHeight;
-            if (objects.Vector2.sqrDistance(object1.position, object2.position) < (radii * radii)) {
+            if (util.Vector2.sqrDistance(object1.position, object2.position) < (radii * radii)) {
                 if (!object2.isColliding) {
                     Collision._collisionResponse(object2);
                     object2.isColliding = true;
@@ -20,10 +20,10 @@ var managers;
             return false;
         };
         Collision.AABBCheck = function (object1, object2) {
-            var object1Offset = (!object1.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object1.halfWidth, object1.halfHeight);
-            var object2Offset = (!object2.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object2.halfWidth, object2.halfHeight);
-            var object1TopLeft = new objects.Vector2(object1.position.x - object1Offset.x, object1.position.y - object1Offset.y);
-            var object2TopLeft = new objects.Vector2(object2.position.x - object2Offset.x, object2.position.y - object2Offset.y);
+            var object1Offset = (!object1.isCentered) ? new util.Vector2(0, 0) : new util.Vector2(object1.halfWidth, object1.halfHeight);
+            var object2Offset = (!object2.isCentered) ? new util.Vector2(0, 0) : new util.Vector2(object2.halfWidth, object2.halfHeight);
+            var object1TopLeft = new util.Vector2(object1.position.x - object1Offset.x, object1.position.y - object1Offset.y);
+            var object2TopLeft = new util.Vector2(object2.position.x - object2Offset.x, object2.position.y - object2Offset.y);
             // AABB Collision Detection
             if (object1TopLeft.x < object2TopLeft.x + object2.width &&
                 object1TopLeft.x + object1.width > object2TopLeft.x &&
@@ -69,7 +69,7 @@ var managers;
                         config.Game.SCORE_BOARD.Lives -= 1;
                         // check if lives falls less than 1 and then switch to END scene
                         if (config.Game.LIVES < 1) {
-                            config.Game.SCENE = scenes.State.END;
+                            config.Game.SCENE = enums.SceneState.END;
                         }
                     }
                     break;

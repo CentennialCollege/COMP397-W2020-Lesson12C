@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Cloud() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "cloud", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "cloud", new util.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
@@ -30,7 +30,7 @@ var objects;
             }
         };
         Cloud.prototype._move = function () {
-            this.position = objects.Vector2.add(this.position, this.velocity);
+            this.position = util.Vector2.add(this.position, this.velocity);
         };
         // PUBLIC METHODS
         Cloud.prototype.Start = function () {
@@ -45,10 +45,10 @@ var objects;
         Cloud.prototype.Reset = function () {
             this._verticalSpeed = util.Mathf.RandomRange(5, 10);
             this._horizontalSpeed = util.Mathf.RandomRange(-2, 2);
-            this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
+            this.velocity = new util.Vector2(this._horizontalSpeed, this._verticalSpeed);
             var randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
             var randomY = util.Mathf.RandomRange(-this.height * 3, -this.height);
-            this.position = new objects.Vector2(randomX, randomY);
+            this.position = new util.Vector2(randomX, randomY);
         };
         return Cloud;
     }(objects.GameObject));

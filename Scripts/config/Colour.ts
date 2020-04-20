@@ -1,7 +1,8 @@
-module config {
+module config
+{
 
     // Color Presets
-    export class Color {
+    export class Colour {
       public static AZURE: string = "#F0FFFF";
       public static BLACK: string = "#000000";
       public static BLUE: string = "#0000FF";

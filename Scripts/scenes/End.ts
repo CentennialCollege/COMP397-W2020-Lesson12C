@@ -3,8 +3,8 @@ module scenes
     export class End extends objects.Scene
     {
         // PRIVATE INSTANCE MEMBERS
-        private _gameOverLabel: objects.Label;
-        private _restartButton: objects.TextureButton;
+        private _gameOverLabel: ui.Label;
+        private _restartButton: ui.TextureButton;
         private _ocean: objects.Ocean;
 
         private _scoreBoard: managers.ScoreBoard;
@@ -27,9 +27,9 @@ module scenes
         public Start(): void
         {
              //instantiate a new Text object
-            this._gameOverLabel = new objects.Label("Game Over", "80px", "Consolas", "#FFFF00", 320, 180, true);
+            this._gameOverLabel = new ui.Label("Game Over", "80px", "Consolas", "#FFFF00", 320, 180, true);
             // buttons
-             this._restartButton = new objects.TextureButton("restartButton", 320, 430, true);
+             this._restartButton = new ui.TextureButton("restartButton", 320, 430, true);
 
              this._ocean = new objects.Ocean();
 
@@ -56,7 +56,7 @@ module scenes
                 config.Game.LIVES = 5;
                 config.Game.SCORE = 0;
 
-                config.Game.SCENE = scenes.State.PLAY;
+                config.Game.SCENE = enums.SceneState.PLAY;
             });
 
             this.addChild(this._scoreBoard.highScoreLabel);
